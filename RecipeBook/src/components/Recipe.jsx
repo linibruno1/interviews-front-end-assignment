@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { StarIcon } from "@heroicons/react/16/solid";
 import { Link } from "react-router-dom";
 
