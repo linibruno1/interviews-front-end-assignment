@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import RecipeDetail from "./pages/RecipeDetail";
 import RecipesList from "./pages/RecipesList";
 import ErrorPage from "./pages/ErrorPage";
 import Header from "./components/Header";
@@ -23,6 +24,16 @@ const router = createBrowserRouter([
       <>
         <Header />
         <RecipesList />
+      </>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "recipes/:id",
+    element: (
+      <>
+        <Header />
+        <RecipeDetail />
       </>
     ),
     errorElement: <ErrorPage />,

@@ -45,22 +45,46 @@ export default function RecipesList() {
         }
     };
 
+
+    // Loading skeleton
+    if (isLoading) {
+        return (
+            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:max-w-[90rem] lg:px-8">
+                <h2 className="text-2xl font-medium text-gray-900">Browse recipes</h2>
+                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 xl:grid-cols-4 xl:gap-x-8">
+                    {Array.from({ length: 8 }).map((_, i) => (
+                        <React.Fragment key={i}>
+                            <RecipeSkeleton />
+                        </React.Fragment>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+
+    // No results
+    if (!isLoading && recipes.length == 0) {
+        return (
+            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:max-w-[90rem] lg:px-8">
+                <h2 className="text-2xl font-medium text-gray-900">Browse recipes</h2>
+                <div className="mt-10 text-center">
+                    <p>No Results</p>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:max-w-[90rem] lg:px-8">
             <h2 className="text-2xl font-medium text-gray-900">Browse recipes</h2>
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 xl:grid-cols-4 xl:gap-x-8">
-                {!isLoading
-                    ? recipes.map((recipe) => (
-                        <React.Fragment key={recipe.id}>
-                            <Recipe data={recipe} />
-                        </React.Fragment>
-                    ))
-                    : Array.from({ length: 8 }).map((_, i) => (
-                        <React.Fragment key={i}>
-                            <RecipeSkeleton />
-                        </React.Fragment>
-                    ))}
+                {recipes.map((recipe) => (
+                    <React.Fragment key={recipe.id}>
+                        <Recipe data={recipe} />
+                    </React.Fragment>
+                ))
+                }
             </div>
 
             <div className="mt-20 flex justify-between">
