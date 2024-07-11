@@ -100,4 +100,40 @@ comments.
 
 ## How to run
 
-...
+### Prerequisites
+
+You need to have Node.js and npm installed on your machine.
+
+### Run the server first!
+
+The project requires API calls provided by the server, so make sure to start the server first (refer to the [README.md](./server/README.md) for instructions).
+
+### Create environment variables
+
+At the root level of the project, create a .env file and paste the following content:
+
+```bash
+VITE_API_URL=http://localhost:8080
+```
+
+### Installing
+
+Install the project dependencies:
+
+```bash
+npm install
+```
+
+### Running the app
+
+To start the app, run the following command:
+
+```bash
+npm run dev
+```
+
+The app will start on `http://localhost:5173`.
+
+🙂
+
+![image](https://github.com/linibruno1/interviews-front-end-assignment/assets/110239802/02433983-761d-4d1d-a07c-73568d16efba)
